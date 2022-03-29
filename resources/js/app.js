@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+require('./my');
 require('./bootstrap');
 require('./chart-js-config');
 require('./spur');
@@ -23,6 +24,11 @@ window.Vue = require('vue').default;
 
 Vue.component('sidebar-component', require('./components/SidebarComponent.vue').default);
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+Vue.component('edit-button-component', require('./components/EditButtonComponent.vue').default);
+Vue.component('delete-button-component', require('./components/DeleteButtonComponent.vue').default);
+Vue.component('success-message-component', require('./components/SuccessMessageComponent').default);
+Vue.component('error-message-component', require('./components/ErrorMessageComponent').default);
+Vue.component('info-message-component', require('./components/InfoMessageComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
