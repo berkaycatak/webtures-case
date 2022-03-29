@@ -17,9 +17,9 @@
 
     @isset($website_description)
         <meta name="description" content="{{ $website_description }}">
-@endif
+    @endif
 
-<!-- Scripts -->
+    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -35,22 +35,42 @@
 </head>
 <body>
     <div id="app">
-        <div class="dash">
-            <sidebar-component>{{ config('app.name', 'Laravel') }}</sidebar-component>
-            <div class="dash-app">
-                <header-component>
-                    <form method="POST" action="{{ route("logout") }}">
-                        @csrf
-                        <button type="submit" class="dropdown-item">Logout</button>
-                    </form>
-                </header-component>
-                <main class="dash-content">
-                    <div class="container-fluid">
-                        <h1 class="dash-title">{{ $website_title }}</h1>
-                        <p class="mb-5">{{ $website_description }}</p>
+        <div class="form-screen">
+            <a href="{{ url('/') }}" class="spur-logo"><i class="fas fa-bolt"></i> <span>{{ config('app.name', 'Laravel') }}</span></a>
+            <div class="card account-dialog">
+                <div class="card-header bg-primary text-white">
+                    {{ $website_title }}
+                </div>
+                <div class="card-body">
+                    @isset($errors)
+                        @if($errors->any())
+                            <div class="errors mt-3">
+                                <div class="mt-3 form-error-top">
+                                    @foreach($errors->all() as $error)
+                                        <li> {{ $error }} </li>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+
+                    @if(session('success') != "")
+                        <div class="container mt-3">
+                            @php(printSuccessMessage(session('success')))
+                        </div>
+                    @endif
+
+                    @if(session('error') != "")
+                        <div class="container mt-3">
+                            @php(printErrorMessage(session('error')))
+                        </div>
+                    @endif
+
+
+                    <main class="py-4">
                         {{ $slot }}
-                    </div>
-                </main>
+                    </main>
+                </div>
             </div>
         </div>
     </div>
