@@ -12,7 +12,8 @@ Admin paneli, Webtures firmasının PHP Developer pozisyonuna yaptığım başvu
     <li>"npm install" komutunu çalıştırın.</li>
     <li>"npm run dev" komutunu çalıştırın.</li>
     <li>.env dosyasını açıp veritabanı kullanıcı adınızı ve şifrenizi girin.</li>
-    <li>Terminal üzerinden "php artisan migrate" komutunu çalıştırın.</li>   
+    <li>"php artisan key:generate" komutunu çalıştırın.</li>
+    <li>Terminal üzerinden "php artisan migrate" komutunu çalıştırın.</li>
     <li>Projeyi ayağa kaldırmak için yine terminal üzerinden "php artisan serve" komutunu çalıştırın.</li>
 </ol>
 
