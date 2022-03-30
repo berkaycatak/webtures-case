@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->char('title', 255);
             $table->text('description');
-            $table->dateTime('date');
+            $table->date('date');
             $table->char('website_url', 255);
             $table->enum("status", ["completed", "continues"])->default("continues");
             $table->timestamps();

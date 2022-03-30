@@ -32,7 +32,7 @@ class ProjectController extends Controller
         $project->description = xss_clean($request->description);
         $project->date = xss_clean($request->date);
         $project->website_url = xss_clean($request->website_url);
-        if (isset($request->status))
+        if ($request->status == "true")
             $project->status = "completed";
         return $project->save();
     }
@@ -55,14 +55,14 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectRequest $request, $id)
     {
         $project = Projects::find($id);
         $project->title = xss_clean($request->title);
         $project->description = xss_clean($request->description);
         $project->date = xss_clean($request->date);
         $project->website_url = xss_clean($request->website_url);
-        if (isset($request->status))
+        if ($request->status == "true")
             $project->status = "completed";
         else
             $project->status = "continues";
